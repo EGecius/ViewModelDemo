@@ -23,9 +23,5 @@ class MainActivity : AppCompatActivity() {
         model.counter.observe(this, Observer {
             counter_text_view.text = it.toString()
         })
-
-        model.getUsers().observe(this, Observer { users ->
-            Log.v("Eg:MainActivity:16", "onCreate() users: $users")
-        })
     }
 }

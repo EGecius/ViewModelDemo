@@ -15,20 +15,6 @@ class MyViewModel(private val savedStateHandle: SavedStateHandle) : ViewModel() 
         Log.v("Eg:MyViewModel:11", "() savedStateHandle: $savedStateHandle")
     }
 
-    private val users: MutableLiveData<List<User>> = MutableLiveData(getDefaultUsers())
-
-    private fun getDefaultUsers(): List<User> {
-        return listOf(User("egis"))
-    }
-
-    fun getUsers(): LiveData<List<User>> {
-        return users
-    }
-
-    private fun loadUsers() {
-        // Do an asynchronous operation to fetch users.
-    }
-
     fun onButtonClicked() {
         val updated = counter.value!! + 1
         counter.value = updated
