@@ -10,21 +10,20 @@ class MyViewModel(private val savedStateHandle: SavedStateHandle) : ViewModel() 
     var counter = MutableLiveData(getInitialCounter())
 
     private fun getInitialCounter(): Int {
-        return savedStateHandle.get<Int>(COUNTER) ?: 0
+        val savedValue = savedStateHandle.get<Int>(COUNTER)
+        return savedValue ?: 0
     }
 
     fun onButtonClicked() {
         val updated = counter.value!! + 1
         counter.value = updated
-    }
 
-    fun onDestroy() {
-        savedStateHandle.set(COUNTER, counter.value)
+        // save updatedValue here:
+        savedStateHandle.set(COUNTER, updated)
     }
 
     companion object {
 
         const val COUNTER = "COUNTER"
-
     }
 }
