@@ -1,10 +1,11 @@
 package com.egecius.viewmodeldemo
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -13,6 +14,16 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val model: MyViewModel by viewModels()
+
+
+        increment_button.setOnClickListener {
+            model.onButtonClicked()
+        }
+
+        model.counter.observe(this, Observer {
+            counter_text_view.text = it.toString()
+        })
+
         model.getUsers().observe(this, Observer { users ->
             Log.v("Eg:MainActivity:16", "onCreate() users: $users")
         })

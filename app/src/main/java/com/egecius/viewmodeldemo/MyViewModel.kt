@@ -8,7 +8,9 @@ import androidx.lifecycle.ViewModel
 
 // saved state goes here into SavedStateHandle
 class MyViewModel(private val savedStateHandle: SavedStateHandle) : ViewModel() {
-    
+
+    var counter = MutableLiveData(0)
+
     init {
         Log.v("Eg:MyViewModel:11", "() savedStateHandle: $savedStateHandle")
     }
@@ -25,5 +27,10 @@ class MyViewModel(private val savedStateHandle: SavedStateHandle) : ViewModel() 
 
     private fun loadUsers() {
         // Do an asynchronous operation to fetch users.
+    }
+
+    fun onButtonClicked() {
+        val updated = counter.value!! + 1
+        counter.value = updated
     }
 }
