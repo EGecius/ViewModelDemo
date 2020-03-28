@@ -28,4 +28,9 @@ class MainActivity : AppCompatActivity() {
             model.onButtonClicked()
         }
     }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        model.onDestroy()
+    }
 }

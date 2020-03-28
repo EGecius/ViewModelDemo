@@ -1,7 +1,5 @@
 package com.egecius.viewmodeldemo
 
-import android.util.Log
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
@@ -9,14 +7,24 @@ import androidx.lifecycle.ViewModel
 // saved state goes here into SavedStateHandle
 class MyViewModel(private val savedStateHandle: SavedStateHandle) : ViewModel() {
 
-    var counter = MutableLiveData(0)
+    var counter = MutableLiveData(getInitialCounter())
 
-    init {
-        Log.v("Eg:MyViewModel:11", "() savedStateHandle: $savedStateHandle")
+    private fun getInitialCounter(): Int {
+        return savedStateHandle.get<Int>(COUNTER) ?: 0
     }
 
     fun onButtonClicked() {
         val updated = counter.value!! + 1
         counter.value = updated
+    }
+
+    fun onDestroy() {
+        savedStateHandle.set(COUNTER, counter.value)
+    }
+
+    companion object {
+
+        const val COUNTER = "COUNTER"
+
     }
 }
