@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
+import androidx.lifecycle.map
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -18,9 +19,11 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun updateOnDataChanges() {
-        model.counter.observe(this, Observer {
-            counter_text_view.text = it.toString()
-        })
+        // you can also use extension function instead of us ing Transformations directly
+        model.counter.map { it.toString() }
+            .observe(this, Observer {
+                counter_text_view.text = it
+            })
     }
 
     private fun setListeners() {
