@@ -9,6 +9,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
+    // now you can use very simple function viewModels() to init ViewModel from anywhere
     private val model: MyViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
