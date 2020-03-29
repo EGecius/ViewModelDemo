@@ -1,11 +1,14 @@
 package com.egecius.viewmodeldemo
 
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
+import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.map
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.coroutines.isActive
 
 class MainActivity : AppCompatActivity() {
 
@@ -17,6 +20,32 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         setListeners()
         updateOnDataChanges()
+        initLifecycleScope()
+    }
+
+    private fun initLifecycleScope() {
+        lifecycleScope.launchWhenCreated {
+            Log.v("Eg:MainActivity:26", "initLifecycleScope() launchWhenCreated")
+        }
+        lifecycleScope.launchWhenStarted {
+            Log.v("Eg:MainActivity:30", "initLifecycleScope() launchWhenStarted")
+        }
+        lifecycleScope.launchWhenResumed {
+            Log.v("Eg:MainActivity:33", "initLifecycleScope() launchWhenResumed")
+        }
+    }
+
+    override fun onStop() {
+        super.onStop()
+        val isActive = lifecycleScope.isActive
+        // scope will still be active onStop. It only gets cancelled in onDestroy()
+        Log.v("Eg:MainActivity:41", "onStop() isActive: $isActive")
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        val isActive = lifecycleScope.isActive
+        Log.v("Eg:MainActivity:48", "onDestroy() isActive: $isActive")
     }
 
     private fun updateOnDataChanges() {
