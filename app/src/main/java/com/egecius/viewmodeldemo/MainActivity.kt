@@ -18,7 +18,7 @@ class MainActivity : AppCompatActivity() {
 
     // if you need to inject a factory into it:
 //    val viewModel : PlayerActivityViewModel
-//            by playerActivity.viewModels { factory }
+//            by mainActivity.viewModels { factory }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
