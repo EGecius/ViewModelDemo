@@ -13,7 +13,12 @@ import kotlinx.coroutines.isActive
 class MainActivity : AppCompatActivity() {
 
     // now you can use very simple function viewModels() to init ViewModel from anywhere
+
     private val model: MyViewModel by viewModels()
+
+    // if you need to inject a factory into it:
+//    val viewModel : PlayerActivityViewModel
+//            by playerActivity.viewModels { factory }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
