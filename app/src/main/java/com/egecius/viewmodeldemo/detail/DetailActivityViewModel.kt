@@ -1,4 +1,4 @@
-package com.egecius.viewmodeldemo
+package com.egecius.viewmodeldemo.detail
 
 import androidx.lifecycle.ViewModel
 

@@ -1,8 +1,8 @@
-package com.egecius.viewmodeldemo
+package com.egecius.viewmodeldemo.detail.di
 
 import androidx.activity.viewModels
 import com.egecius.viewmodeldemo.detail.DetailActivity
-import com.egecius.viewmodeldemo.di.DetailActivityViewModelFactory
+import com.egecius.viewmodeldemo.detail.DetailActivityViewModel
 import dagger.Module
 import dagger.Provides
 
@@ -16,7 +16,7 @@ class DetailActivityModule(private val detailActivity: DetailActivity) {
             factory
         }
 
-        val viewModel : DetailActivityViewModel by lazy
+        val viewModel: DetailActivityViewModel by lazy
         return viewModel
     }
 
