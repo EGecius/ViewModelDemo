@@ -21,6 +21,9 @@ class MainActivity : AppCompatActivity() {
         setListeners()
         updateOnDataChanges()
         initLifecycleScope()
+
+        // even though a new ViewModel is created each time, its state is fully recreated
+        Log.d("Eg:MainActivity:25", "onCreate() model.hashCode(): ${model.hashCode()}")
     }
 
     private fun initLifecycleScope() {
