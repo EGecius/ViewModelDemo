@@ -14,7 +14,7 @@ class MainActivity : AppCompatActivity() {
 
     // now you can use very simple function viewModels() to init ViewModel from anywhere
 
-    private val model: MyViewModel by viewModels()
+    private val model: MainActivityViewModel by viewModels()
 
     // if you need to inject a factory into it:
 //    val viewModel : PlayerActivityViewModel
