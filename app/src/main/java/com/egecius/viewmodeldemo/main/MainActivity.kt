@@ -1,4 +1,4 @@
-package com.egecius.viewmodeldemo
+package com.egecius.viewmodeldemo.main
 
 import android.os.Bundle
 import android.util.Log
@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.map
+import com.egecius.viewmodeldemo.R
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.coroutines.isActive
 

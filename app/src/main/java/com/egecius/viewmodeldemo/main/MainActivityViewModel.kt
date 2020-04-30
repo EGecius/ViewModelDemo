@@ -1,4 +1,4 @@
-package com.egecius.viewmodeldemo
+package com.egecius.viewmodeldemo.main
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.SavedStateHandle
