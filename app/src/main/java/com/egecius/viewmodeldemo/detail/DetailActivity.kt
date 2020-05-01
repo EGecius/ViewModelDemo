@@ -10,6 +10,7 @@ import javax.inject.Inject
 
 class DetailActivity : AppCompatActivity(R.layout.activity_detail) {
 
+    /// this is injected using ComponentActivity.viewModels(factory)
     @Inject
     lateinit var viewModel: DetailActivityViewModel
 
